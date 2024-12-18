@@ -44,7 +44,7 @@ public class Tower : MonoBehaviour
 
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
         Projectile projectileScript = projectile.GetComponent<Projectile>();
-        projectileScript.Initialize(target.transform); // Hedefi projeye at
+        projectileScript.Initialize(target.transform); // Hedefi projeye parametre olarak gönder
     }
 
     public void UpdateUpgradeLevels(int healthUpgradeLevel, int damageUpgradeLevel, int attackSpeedUpgradeLevel, int criticalChanceUpgradeLevel, int rangeUpgradeLevel)

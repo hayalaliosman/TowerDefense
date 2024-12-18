@@ -71,6 +71,7 @@ public class UpgradeSystem : MonoBehaviour
         if (CoinManager.Instance.SpendCoins(damageUpgradeCost))
         {
             tower.IncreaseDamage(0.2f); // Hasarı 1 artır
+            _damageUpgradeLevel++;
             PlayerPrefs.SetInt("_damageUpgradeLevel", _damageUpgradeLevel);
             Debug.Log("Tower damage upgraded!");
         }
@@ -85,6 +86,7 @@ public class UpgradeSystem : MonoBehaviour
         if (CoinManager.Instance.SpendCoins(attackSpeedUpgradeCost))
         {
             tower.IncreaseAttackSpeed(0.1f); // Saldırı hızını artır
+            _attackSpeedUpgradeLevel++;
             PlayerPrefs.SetInt("_attackSpeedUpgradeLevel", _attackSpeedUpgradeLevel);
             Debug.Log("Tower attack speed upgraded!");
         }
@@ -99,7 +101,8 @@ public class UpgradeSystem : MonoBehaviour
         if (CoinManager.Instance.SpendCoins(criticalChanceUpgradeCost))
         {
             tower.IncreaseCriticalChance(criticalChanceIncrease); // Kritik vuruş ihtimalini artır
-            PlayerPrefs.SetInt("_attackSpeedUpgradeLevel", _criticalChanceUpgradeLevel);
+            _criticalChanceUpgradeLevel++;
+            PlayerPrefs.SetInt("_criticalChanceUpgradeLevel", _criticalChanceUpgradeLevel);
             Debug.Log("Tower critical chance upgraded!");
         }
         else
@@ -113,6 +116,7 @@ public class UpgradeSystem : MonoBehaviour
         if (CoinManager.Instance.SpendCoins(rangeUpgradeCost))
         {
             tower.IncreaseRange(rangeIncrease); // Menzili artır
+            _rangeUpgradeLevel++;
             PlayerPrefs.SetInt("_rangeUpgradeLevel", _rangeUpgradeLevel);
             Debug.Log("Tower range upgraded!");
         }

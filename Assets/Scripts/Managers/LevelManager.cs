@@ -39,10 +39,10 @@ public class LevelManager : MonoBehaviour
     {
         _levelEndUI = GetComponent<LevelEndUI>();
         LoadData();
-        startLevelButton.onClick.AddListener(StartNextWave);
+        startLevelButton.onClick.AddListener(StartNextLevel);
     }
 
-    private void StartNextWave()
+    private void StartNextLevel()
     {
         Time.timeScale = 1;
         bottomPanel.SetActive(false);
@@ -51,7 +51,7 @@ public class LevelManager : MonoBehaviour
         StartCoroutine(SpawnEnemies());
     }
 
-    private void CompleteWave()
+    private void CompleteLevel()
     {
         currentLevel++;
         PlayerPrefs.SetInt(LevelDataKey, currentLevel);
@@ -94,7 +94,7 @@ public class LevelManager : MonoBehaviour
         remainingEnemyCount--;
         if (remainingEnemyCount <= 0)
         {
-            CompleteWave();
+            CompleteLevel();
             ActivateSuccessPanel();
         }
     }
@@ -104,7 +104,7 @@ public class LevelManager : MonoBehaviour
         _levelEndUI.ActivateFailPanel();
     }
 
-    public void ActivateSuccessPanel()
+    private void ActivateSuccessPanel()
     {
         _levelEndUI.ActivateSuccessPanel();
     }

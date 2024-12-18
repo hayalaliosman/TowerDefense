@@ -11,7 +11,7 @@ public class Projectile : MonoBehaviour
         this.target = target;
     }
 
-    void Update()
+    private void Update()
     {
         if (target == null)
         {
